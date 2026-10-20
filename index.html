@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Nithin V. Sabu · NIT Calicut</title>
+<meta name="description" content="Dr. Nithin V. Sabu, INSPIRE Faculty at NIT Calicut. Research in molecular communication, 5G/6G wireless communication and stochastic geometry.">
+<meta property="og:title" content="Dr. Nithin V. Sabu">
+<meta property="og:description" content="INSPIRE Faculty, National Institute of Technology Calicut. Molecular communication, wireless communication, stochastic geometry.">
+<meta property="og:image" content="https://i.postimg.cc/zvG01jNM/Photo-Nithin.jpg">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a56db'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='26' font-weight='700' fill='white' text-anchor='middle'%3ENS%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --soft:#f6f7f9;
+    --ink:#111827;
+    --muted:#5b6474;
+    --faint:#8a92a1;
+    --line:#e6e8ec;
+    --accent:#1a56db;
+    --accent-soft:#eaf0fe;
+    --ok:#0f8a4f;
+    --ok-soft:#e6f5ed;
+    --warn:#a15c00;
+    --warn-soft:#fdf2e1;
+    --max:920px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0e1116;
+      --soft:#151a21;
+      --ink:#e7e9ee;
+      --muted:#a2aab8;
+      --faint:#7a8291;
+      --line:#242a33;
+      --accent:#7aa2ff;
+      --accent-soft:#1a2440;
+      --ok:#4cc38a;
+      --ok-soft:#12291e;
+      --warn:#f0b35a;
+      --warn-soft:#2c2213;
+    }
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:72px;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 20px;}
+
+  /* Nav */
+  header.nav{
+    position:sticky; top:0; z-index:10;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:saturate(1.4) blur(10px); -webkit-backdrop-filter:saturate(1.4) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; height:60px; gap:16px;}
+  .brand{font-weight:600; color:var(--ink); white-space:nowrap; font-size:0.95rem;}
+  .brand:hover{text-decoration:none;}
+  .nav-links{display:flex; gap:4px; overflow-x:auto; scrollbar-width:none;}
+  .nav-links::-webkit-scrollbar{display:none;}
+  .nav-links a{
+    color:var(--muted); font-size:0.88rem; font-weight:500; padding:6px 10px; border-radius:8px; white-space:nowrap;
+  }
+  .nav-links a:hover{color:var(--ink); background:var(--soft); text-decoration:none;}
+  .nav-links a.active{color:var(--accent); background:var(--accent-soft);}
+
+  section{padding:56px 0; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .eyebrow{font-size:0.75rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); margin:0 0 8px;}
+  h2{font-size:1.6rem; font-weight:700; letter-spacing:-0.015em; margin:0 0 24px;}
+
+  /* Hero */
+  .hero{padding:64px 0 56px;}
+  .hero-grid{display:grid; grid-template-columns:180px 1fr; gap:40px; align-items:start;}
+  .avatar{width:180px; height:180px; border-radius:50%; object-fit:cover; display:block; background:var(--soft); border:1px solid var(--line);}
+  .name{font-family:'Source Serif 4',Georgia,serif; font-size:2.4rem; font-weight:600; line-height:1.15; letter-spacing:-0.01em; margin:0 0 6px;}
+  .role{color:var(--muted); font-size:1.02rem; margin:0 0 20px;}
+  .role strong{color:var(--ink); font-weight:600;}
+  .bio{color:var(--muted); margin:0 0 24px;}
+  .links{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    display:inline-flex; align-items:center; gap:7px; font-size:0.86rem; font-weight:500;
+    color:var(--ink); border:1px solid var(--line); border-radius:999px; padding:6px 13px; background:var(--bg);
+  }
+  .chip:hover{border-color:var(--accent); color:var(--accent); text-decoration:none;}
+  .chip svg{width:15px; height:15px; fill:currentColor; flex:none;}
+
+  /* News */
+  .news{list-style:none; margin:0; padding:0;}
+  .news li{display:grid; grid-template-columns:88px 1fr; gap:20px; padding:16px 0; border-top:1px solid var(--line);}
+  .news li:first-child{border-top:none; padding-top:0;}
+  .news .when{font-size:0.84rem; font-weight:600; color:var(--faint); padding-top:2px;}
+  .news .what{font-size:0.95rem;}
+  .news .what em{font-style:italic;}
+  .news .doi{display:inline-block; margin-top:4px; font-size:0.84rem;}
+  .badge{display:inline-block; font-size:0.7rem; font-weight:700; letter-spacing:0.02em; padding:2px 8px; border-radius:6px; margin-right:6px; vertical-align:1px;}
+  .badge.accepted{background:var(--ok-soft); color:var(--ok);}
+  .badge.early{background:var(--warn-soft); color:var(--warn);}
+  .badge.published{background:var(--accent-soft); color:var(--accent);}
+
+  /* Research */
+  .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .card{border:1px solid var(--line); border-radius:14px; overflow:hidden; background:var(--bg); display:flex; flex-direction:column;}
+  .card img{width:100%; aspect-ratio:16/10; object-fit:cover; display:block; background:var(--soft); border-bottom:1px solid var(--line);}
+  .card-body{padding:18px 18px 20px;}
+  .card h3{font-size:1rem; font-weight:600; margin:0 0 6px;}
+  .card p{font-size:0.9rem; color:var(--muted); margin:0;}
+
+  .join{margin-top:28px; padding:24px; border-radius:14px; background:var(--soft); border:1px solid var(--line);}
+  .join h3{font-size:1.05rem; font-weight:600; margin:0 0 6px;}
+  .join p{color:var(--muted); font-size:0.94rem; margin:0 0 14px;}
+  .tags{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{font-size:0.8rem; font-weight:600; color:var(--accent); background:var(--accent-soft); padding:5px 12px; border-radius:999px;}
+  .join .contact-line{margin:14px 0 0; font-size:0.9rem;}
+
+  /* Publications */
+  .pub-head{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:12px; margin-bottom:8px;}
+  .pub-head h2{margin:0;}
+  .filters{display:flex; flex-wrap:wrap; gap:6px;}
+  .filters button{
+    font:inherit; font-size:0.84rem; font-weight:500; cursor:pointer;
+    color:var(--muted); background:var(--bg); border:1px solid var(--line); border-radius:999px; padding:5px 12px;
+  }
+  .filters button:hover{color:var(--ink);}
+  .filters button[aria-pressed="true"]{color:var(--accent); border-color:var(--accent); background:var(--accent-soft);}
+  .pub-stats{color:var(--faint); font-size:0.86rem; margin:0 0 8px;}
+  .pub-group{margin-top:28px;}
+  .pub-group h3{font-size:0.8rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); margin:0 0 4px;}
+  .pubs{list-style:none; margin:0; padding:0; counter-reset:pub;}
+  .pubs li{
+    counter-increment:pub; position:relative; padding:14px 0 14px 48px;
+    border-top:1px solid var(--line); font-size:0.93rem; color:var(--muted);
+  }
+  .pubs li:first-child{border-top:none;}
+  .pubs li::before{
+    position:absolute; left:0; top:15px; font-size:0.78rem; font-weight:600; color:var(--faint);
+    font-variant-numeric:tabular-nums;
+  }
+  .pubs.j li::before{content:"J" counter(pub);}
+  .pubs.c li::before{content:"C" counter(pub);}
+  .pubs.b li::before{content:"B" counter(pub);}
+  .pubs .t{display:block; color:var(--ink); font-weight:600; line-height:1.45; margin-bottom:3px;}
+  .pubs .me{color:var(--ink); font-weight:600;}
+  .pubs .venue{font-style:italic;}
+  .pubs .meta{display:block; margin-top:4px; font-size:0.84rem;}
+
+  /* Teaching */
+  .table-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:12px;}
+  table{width:100%; border-collapse:collapse; font-size:0.92rem;}
+  th,td{text-align:left; padding:12px 16px; white-space:nowrap;}
+  thead th{font-size:0.76rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--faint); background:var(--soft); border-bottom:1px solid var(--line);}
+  tbody tr+tr td{border-top:1px solid var(--line);}
+  td{color:var(--muted);}
+  td:first-child{color:var(--ink); font-weight:500; white-space:normal;}
+  td.code{font-variant-numeric:tabular-nums; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:0.85rem;}
+
+  /* Contact */
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  .contact-item .label{font-size:0.78rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--faint); margin-bottom:6px;}
+  .contact-item p{margin:0; color:var(--muted);}
+
+  footer{padding:28px 0 40px; color:var(--faint); font-size:0.84rem;}
+
+  @media (max-width:760px){
+    .hero{padding:40px 0 44px;}
+    .hero-grid{grid-template-columns:1fr; gap:24px;}
+    .avatar{width:128px; height:128px;}
+    .name{font-size:1.95rem;}
+    .cards{grid-template-columns:1fr;}
+    .news li{grid-template-columns:1fr; gap:4px;}
+    .contact-grid{grid-template-columns:1fr;}
+    section{padding:44px 0;}
+    .brand{display:none;}
+    .nav-inner{justify-content:flex-start;}
+  }
+  @media print{
+    header.nav,.filters{display:none;}
+    section{padding:24px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">Nithin V. Sabu</a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#news">News</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ABOUT -->
+  <section id="about" class="hero">
+    <div class="wrap hero-grid">
+      <img class="avatar" src="https://i.postimg.cc/zvG01jNM/Photo-Nithin.jpg" alt="Portrait of Dr. Nithin V. Sabu" width="180" height="180">
+      <div>
+        <h1 class="name">Dr. Nithin V. Sabu</h1>
+        <p class="role"><strong>INSPIRE Faculty</strong> · Department of Electronics and Communication Engineering, National Institute of Technology Calicut</p>
+        <p class="bio">
+          Nithin V. Sabu received the B.Tech. degree in Electronics and Communication Engineering from Sree Buddha College of Engineering, University of Kerala, in 2013, and the M.Tech. degree in Communication Systems from T.K.M. College of Engineering, University of Kerala, in 2016. He received the Ph.D. degree from the Indian Institute of Technology Kanpur in 2023, specializing in molecular communication. He then served as a Postdoctoral Researcher at Michigan State University, USA, during 2023–2024. He is currently an INSPIRE Faculty member at the National Institute of Technology Calicut, holding the INSPIRE Faculty Fellowship awarded by the Department of Science and Technology (DST), Government of India. His research interests include molecular communication, wireless communication, and stochastic geometry.
+        </p>
+        <div class="links">
+          <a class="chip" href="mailto:nithinvs@nitc.ac.in">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4.2-8 5-8-5V6l8 5 8-5v2.2Z"/></svg>
+            Email
+          </a>
+          <a class="chip" href="https://scholar.google.com/citations?user=e1iKLqcAAAAJ&hl=en" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3Zm-7 9.2V16c0 2.2 3.1 4 7 4s7-1.8 7-4v-3.8l-7 3.8-7-3.8Z"/></svg>
+            Google Scholar
+          </a>
+          <a class="chip" href="https://www.researchgate.net/profile/Nithin-Sabu-2" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h18v18H3V3Zm5.2 4.5c-1.6 0-2.7 1.1-2.7 2.8v3.4c0 1.7 1.1 2.8 2.7 2.8 1.2 0 2-.5 2.4-1.4l-1.2-.6c-.2.4-.6.7-1.2.7-.8 0-1.2-.6-1.2-1.5v-3.4c0-.9.4-1.5 1.2-1.5.6 0 1 .3 1.2.8l1.2-.6c-.4-.9-1.2-1.5-2.4-1.5Zm4.3.1v8.8H14v-3.6h.9l1.7 3.6h1.6l-1.9-3.9c.9-.4 1.4-1.2 1.4-2.3 0-1.6-1.1-2.6-2.8-2.6h-2.4Zm1.5 1.3h.8c.8 0 1.3.5 1.3 1.3s-.5 1.3-1.3 1.3H14V8.9Z"/></svg>
+            ResearchGate
+          </a>
+          <a class="chip" href="https://orcid.org/0000-0003-0548-2697" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20ZM8.3 17.3H6.9V9.9h1.4v7.4ZM7.6 8.9a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8Zm3.1 8.4V9.9h2.9c2.6 0 3.9 1.8 3.9 3.7 0 2-1.5 3.7-3.9 3.7h-2.9Zm1.4-1.2h1.4c1.9 0 2.6-1.3 2.6-2.5 0-1.3-.8-2.5-2.6-2.5h-1.4v5Z"/></svg>
+            ORCID
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section id="news">
+    <div class="wrap">
+      <p class="eyebrow">Updates</p>
+      <h2>Latest news</h2>
+      <ul class="news">
+        <li>
+          <div class="when">2026</div>
+          <div class="what">
+            <span class="badge accepted">ACCEPTED</span>
+            “On the Spatio-Temporal Dynamics and Reliability of Clustered Molecular Relay Nanonetworks” (N. V. Sabu, K. Pandey, A. K. Gupta and S. M. Sameer) has been accepted for publication in <em>IEEE Transactions on Communications</em>.
+          </div>
+        </li>
+        <li>
+          <div class="when">2026</div>
+          <div class="what">
+            <span class="badge early">EARLY ACCESS</span>
+            “Joint Detection and Correlation Analysis in Diffusion-Based Molecular Communication” (K. Pandey, N. V. Sabu and A. K. Gupta) has been accepted in <em>IEEE Transactions on Molecular, Biological, and Multi-Scale Communications</em> and is available in early access.<br>
+            <a class="doi" href="https://doi.org/10.1109/TMBMC.2026.3743888" target="_blank" rel="noopener">doi: 10.1109/TMBMC.2026.3743888</a>
+          </div>
+        </li>
+        <li>
+          <div class="when">2026</div>
+          <div class="what">
+            <span class="badge published">PUBLISHED</span>
+            “Modeling and Analysis of Molecular Communication With Correlated Emission Patterns” (K. Pandey, N. V. Sabu, S. M. Sameer and A. K. Gupta) has been published in <em>IEEE Transactions on Molecular, Biological, and Multi-Scale Communications</em>, vol. 12.<br>
+            <a class="doi" href="https://doi.org/10.1109/TMBMC.2026.3731499" target="_blank" rel="noopener">doi: 10.1109/TMBMC.2026.3731499</a>
+          </div>
+        </li>
+        <li>
+          <div class="when">2026</div>
+          <div class="what">
+            <span class="badge published">PUBLISHED</span>
+            “Data-Driven Radio Map Caching for Beam Management Under Positioning Uncertainty” (K. Pandey and N. V. Sabu) has been published in <em>IEEE Communications Letters</em>, vol. 30.<br>
+            <a class="doi" href="https://doi.org/10.1109/LCOMM.2026.3736853" target="_blank" rel="noopener">doi: 10.1109/LCOMM.2026.3736853</a>
+          </div>
+        </li>
+        <li>
+          <div class="when">Dec 2025</div>
+          <div class="what">
+            <span class="badge published">PUBLISHED</span>
+            “Target Detection in Clustered Mobile Nanomachine Networks” (N. V. Sabu, K. Pandey, A. K. Gupta and S. M. Sameer), accepted in Dec 2025, now appears in <em>IEEE Transactions on Molecular, Biological, and Multi-Scale Communications</em>, vol. 12.<br>
+            <a class="doi" href="https://doi.org/10.1109/TMBMC.2025.3638668" target="_blank" rel="noopener">doi: 10.1109/TMBMC.2025.3638668</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <div class="wrap">
+      <p class="eyebrow">Research</p>
+      <h2>Research interests</h2>
+      <div class="cards">
+        <article class="card">
+          <img src="https://i.postimg.cc/hvM4XKHf/MC.png" alt="Illustration of molecular communication" loading="lazy">
+          <div class="card-body">
+            <h3>Molecular Communication</h3>
+            <p>Principles of communication at the molecular level, focusing on biological and nanoscale systems for new methods of data transmission.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://i.postimg.cc/TP2zPrTb/5G.png" alt="Illustration of 5G/6G wireless networks" loading="lazy">
+          <div class="card-body">
+            <h3>5G/6G Wireless Communication</h3>
+            <p>Advanced wireless technologies that improve connectivity, speed, and efficiency in next-generation networks.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://i.postimg.cc/pT51TLH6/Gemini-Generated-Image-v13or2v13or2v13o.png" alt="Illustration of a spatial point process" loading="lazy">
+          <div class="card-body">
+            <h3>Stochastic Geometry</h3>
+            <p>Modeling and analysis of spatial patterns in wireless networks and other complex systems.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="join">
+        <h3>Join our research group</h3>
+        <p>We are looking for motivated B.Tech, M.Tech, and Ph.D. students who want to work on cutting-edge communication technologies.</p>
+        <div class="tags">
+          <span class="tag">Molecular Communication</span>
+          <span class="tag">Sleep-Awake Optimization</span>
+          <span class="tag">Beyond 5G Systems</span>
+        </div>
+        <p class="contact-line">Interested? Write to <a href="mailto:nithinvs@nitc.ac.in">nithinvs@nitc.ac.in</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <div class="wrap">
+      <p class="eyebrow">Output</p>
+      <div class="pub-head">
+        <h2>Publications</h2>
+        <div class="filters" role="group" aria-label="Filter publications">
+          <button type="button" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" data-filter="j" aria-pressed="false">Journals</button>
+          <button type="button" data-filter="c" aria-pressed="false">Conferences</button>
+          <button type="button" data-filter="b" aria-pressed="false">Book chapters</button>
+        </div>
+      </div>
+      <p class="pub-stats">11 journal articles · 8 conference papers · 2 book chapters</p>
+
+      <div class="pub-group" data-group="j">
+        <h3>Journal articles</h3>
+        <ol class="pubs j">
+          <li>
+            <span class="t">On the Spatio-Temporal Dynamics and Reliability of Clustered Molecular Relay Nanonetworks</span>
+            <span class="me">N. V. Sabu</span>, K. Pandey, A. K. Gupta and S. M. Sameer. <span class="venue">IEEE Transactions on Communications</span>, 2026.
+            <span class="meta"><span class="badge accepted">ACCEPTED</span></span>
+          </li>
+          <li>
+            <span class="t">Joint Detection and Correlation Analysis in Diffusion-Based Molecular Communication</span>
+            K. Pandey, <span class="me">N. V. Sabu</span> and A. K. Gupta. <span class="venue">IEEE Transactions on Molecular, Biological, and Multi-Scale Communications</span>, 2026.
+            <span class="meta"><span class="badge early">EARLY ACCESS</span><a href="https://doi.org/10.1109/TMBMC.2026.3743888" target="_blank" rel="noopener">doi: 10.1109/TMBMC.2026.3743888</a></span>
+          </li>
+          <li>
+            <span class="t">Data-Driven Radio Map Caching for Beam Management Under Positioning Uncertainty</span>
+            K. Pandey and <span class="me">N. V. Sabu</span>. <span class="venue">IEEE Communications Letters</span>, vol. 30, pp. 3317–3321, 2026.
+            <span class="meta"><a href="https://doi.org/10.1109/LCOMM.2026.3736853" target="_blank" rel="noopener">doi: 10.1109/LCOMM.2026.3736853</a></span>
+          </li>
+          <li>
+            <span class="t">Modeling and Analysis of Molecular Communication With Correlated Emission Patterns</span>
+            K. Pandey, <span class="me">N. V. Sabu</span>, S. M. Sameer and A. K. Gupta. <span class="venue">IEEE Transactions on Molecular, Biological, and Multi-Scale Communications</span>, vol. 12, pp. 995–1009, 2026.
+            <span class="meta"><a href="https://doi.org/10.1109/TMBMC.2026.3731499" target="_blank" rel="noopener">doi: 10.1109/TMBMC.2026.3731499</a></span>
+          </li>
+          <li>
+            <span class="t">Target Detection in Clustered Mobile Nanomachine Networks</span>
+            <span class="me">N. V. Sabu</span>, K. Pandey, A. K. Gupta and S. M. Sameer. <span class="venue">IEEE Transactions on Molecular, Biological, and Multi-Scale Communications</span>, vol. 12, pp. 92–104, 2026.
+            <span class="meta"><a href="https://doi.org/10.1109/TMBMC.2025.3638668" target="_blank" rel="noopener">doi: 10.1109/TMBMC.2025.3638668</a></span>
+          </li>
+          <li>
+            <span class="t">On the Target Detection Performance of a Molecular Communication Network With Multiple Mobile Nanomachines</span>
+            <span class="me">N. V. Sabu</span> and A. K. Gupta. <span class="venue">IEEE Transactions on NanoBioscience</span>, vol. 23, no. 3, pp. 524–536, July 2024.
+            <span class="meta"><a href="https://doi.org/10.1109/TNB.2024.3399188" target="_blank" rel="noopener">doi: 10.1109/TNB.2024.3399188</a></span>
+          </li>
+          <li>
+            <span class="t">Channel Characterization and Performance of a 3-D Molecular Communication System With Multiple Fully-Absorbing Receivers</span>
+            <span class="me">N. V. Sabu</span>, A. K. Gupta, N. Varshney and A. Jindal. <span class="venue">IEEE Transactions on Communications</span>, vol. 71, no. 2, pp. 714–727, Feb. 2023.
+            <span class="meta"><a href="https://doi.org/10.1109/TCOMM.2022.3228920" target="_blank" rel="noopener">doi: 10.1109/TCOMM.2022.3228920</a></span>
+          </li>
+          <li>
+            <span class="t">On the Performance of the Primary and Secondary Links in a 3-D Underlay Cognitive Molecular Communication</span>
+            <span class="me">N. V. Sabu</span>, N. Varshney and A. K. Gupta. <span class="venue">IEEE Transactions on Communications</span>, vol. 69, no. 12, pp. 8028–8041, Dec. 2021.
+            <span class="meta"><a href="https://doi.org/10.1109/TCOMM.2021.3112557" target="_blank" rel="noopener">doi: 10.1109/TCOMM.2021.3112557</a></span>
+          </li>
+          <li>
+            <span class="t">3-D Diffusive Molecular Communication With Two Fully-Absorbing Receivers: Hitting Probability and Performance Analysis</span>
+            <span class="me">N. V. Sabu</span>, N. Varshney and A. K. Gupta. <span class="venue">IEEE Transactions on Molecular, Biological and Multi-Scale Communications</span>, vol. 6, no. 3, pp. 244–249, Dec. 2020.
+            <span class="meta"><a href="https://doi.org/10.1109/TMBMC.2020.3031414" target="_blank" rel="noopener">doi: 10.1109/TMBMC.2020.3031414</a></span>
+          </li>
+          <li>
+            <span class="t">Detection Probability in a Molecular Communication via Diffusion System With Multiple Fully-Absorbing Receivers</span>
+            <span class="me">N. V. Sabu</span> and A. K. Gupta. <span class="venue">IEEE Communications Letters</span>, vol. 24, no. 12, pp. 2824–2828, Dec. 2020.
+            <span class="meta"><a href="https://doi.org/10.1109/LCOMM.2020.3017243" target="_blank" rel="noopener">doi: 10.1109/LCOMM.2020.3017243</a></span>
+          </li>
+          <li>
+            <span class="t">Analysis of Diffusion Based Molecular Communication With Multiple Transmitters Having Individual Random Information Bits</span>
+            <span class="me">N. V. Sabu</span> and A. K. Gupta. <span class="venue">IEEE Transactions on Molecular, Biological and Multi-Scale Communications</span>, vol. 5, no. 3, pp. 176–188, Dec. 2019.
+            <span class="meta"><a href="https://doi.org/10.1109/TMBMC.2020.2986719" target="_blank" rel="noopener">doi: 10.1109/TMBMC.2020.2986719</a></span>
+          </li>
+        </ol>
+      </div>
+
+      <div class="pub-group" data-group="c">
+        <h3>Conference papers</h3>
+        <ol class="pubs c">
+          <li>
+            <span class="t">THz-Based Microfluidic LSPP-Metastructure for the Analysis of Electrochemical Communication in Bacterial Networks</span>
+            A. H. Naqvi, <span class="me">N. V. Sabu</span>, W. Li and B. D. Unluturk. <span class="venue">IEEE International Black Sea Conference on Communications and Networking (BlackSeaCom)</span>, Tbilisi, Georgia, 2024, pp. 1–6.
+            <span class="meta"><a href="https://doi.org/10.1109/BlackSeaCom61746.2024.10646298" target="_blank" rel="noopener">doi: 10.1109/BlackSeaCom61746.2024.10646298</a></span>
+          </li>
+          <li>
+            <span class="t">On the Caching Performance of Vehicular Networks with Platooned Traffic</span>
+            <span class="me">N. V. Sabu</span>, K. Pandey, A. K. Gupta and A. Banerjee. <span class="venue">IEEE Wireless Communications and Networking Conference (WCNC)</span>, Dubai, UAE, 2024, pp. 1–6.
+            <span class="meta"><a href="https://doi.org/10.1109/WCNC57260.2024.10570651" target="_blank" rel="noopener">doi: 10.1109/WCNC57260.2024.10570651</a></span>
+          </li>
+          <li>
+            <span class="t">Electrochemical Communication in Bacterial Biofilms: A Study on Potassium Stimulation and Signal Transmission</span>
+            <span class="me">N. V. Sabu</span> and B. D. Unluturk. <span class="venue">IEEE Wireless Communications and Networking Conference (WCNC)</span>, Dubai, UAE, 2024, pp. 1–6.
+            <span class="meta"><a href="https://doi.org/10.1109/WCNC57260.2024.10570824" target="_blank" rel="noopener">doi: 10.1109/WCNC57260.2024.10570824</a></span>
+          </li>
+          <li>
+            <span class="t">Molecular Ad Hoc Network with Passive Receivers</span>
+            S. K. Charitha T, A. K. Gupta, L. Tyagi, <span class="me">N. V. Sabu</span> and A. Banerjee. <span class="venue">International Symposium on Modeling and Optimization in Mobile, Ad Hoc, and Wireless Networks (WiOpt)</span>, Singapore, 2023, pp. 1–7.
+            <span class="meta"><a href="https://doi.org/10.23919/WiOpt58741.2023.10349873" target="_blank" rel="noopener">doi: 10.23919/WiOpt58741.2023.10349873</a></span>
+          </li>
+          <li>
+            <span class="t">Diversity Combining in a Single-Input-Multiple-Output Molecular Communication System</span>
+            A. K. Gupta and <span class="me">N. V. Sabu</span>. <span class="venue">National Conference on Communications (NCC)</span>, May 2022, pp. 419–424.
+            <span class="meta"><a href="https://doi.org/10.1109/NCC55593.2022.9806762" target="_blank" rel="noopener">doi: 10.1109/NCC55593.2022.9806762</a></span>
+          </li>
+          <li>
+            <span class="t">Impact of Multiple Fully-Absorbing Receivers in Molecular Communications</span>
+            <span class="me">N. V. Sabu</span>, A. K. Gupta, N. Varshney and A. Jindal. <span class="venue">IEEE International Conference on Communications (ICC) Workshops</span>, Seoul, South Korea, May 2022, pp. 562–567.
+            <span class="meta"><a href="https://doi.org/10.1109/ICCWorkshops53468.2022.9814576" target="_blank" rel="noopener">doi: 10.1109/ICCWorkshops53468.2022.9814576</a></span>
+          </li>
+          <li>
+            <span class="t">Analysis of Diffusion Based Molecular Communication System with Multiple Transmitters</span>
+            <span class="me">N. V. Sabu</span> and A. K. Gupta. <span class="venue">International Conference on Signal Processing and Communications (SPCOM)</span>, Bangalore, India, July 2020, pp. 1–5.
+            <span class="meta"><a href="https://doi.org/10.1109/SPCOM50965.2020.9179506" target="_blank" rel="noopener">doi: 10.1109/SPCOM50965.2020.9179506</a></span>
+          </li>
+          <li>
+            <span class="t">On Hybrid MoSK-CSK Modulation based Molecular Communication: Error Rate Performance Analysis using Stochastic Geometry</span>
+            <span class="me">N. V. Sabu</span>, N. Varshney and A. K. Gupta. <span class="venue">International Symposium on Modeling and Optimization in Mobile, Ad Hoc, and Wireless Networks (WiOpt)</span>, Avignon, France, June 2019, pp. 1–7.
+            <span class="meta"><a href="https://doi.org/10.23919/WiOPT47501.2019.9144119" target="_blank" rel="noopener">doi: 10.23919/WiOPT47501.2019.9144119</a></span>
+          </li>
+        </ol>
+      </div>
+
+      <div class="pub-group" data-group="b">
+        <h3>Book chapters</h3>
+        <ol class="pubs b">
+          <li>
+            <span class="t">Millimeter-Wave and Terahertz Spectrum for 6G Wireless</span>
+            S. Tripathi, <span class="me">N. V. Sabu</span>, A. K. Gupta and H. S. Dhillon. In <span class="venue">6G Mobile Wireless Networks</span>, Y. Wu <i>et al.</i>, eds. Springer, 2021, pp. 83–121.
+            <span class="meta"><a href="https://doi.org/10.1007/978-3-030-72777-2_6" target="_blank" rel="noopener">doi: 10.1007/978-3-030-72777-2_6</a></span>
+          </li>
+          <li>
+            <span class="t">Fundamentals of Network Densification</span>
+            A. K. Gupta, <span class="me">N. V. Sabu</span> and H. S. Dhillon. In <span class="venue">5G and Beyond: Fundamentals and Standards</span>, N. Lee and X. Lin, eds. Springer, 2020, pp. 129–163.
+            <span class="meta"><a href="https://doi.org/10.1007/978-3-030-58197-8_5" target="_blank" rel="noopener">doi: 10.1007/978-3-030-58197-8_5</a></span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEACHING -->
+  <section id="teaching">
+    <div class="wrap">
+      <p class="eyebrow">Teaching</p>
+      <h2>Courses</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Course</th><th>Code</th><th>Institution</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Introduction to Programming</td><td class="code">EC1002E</td><td>NIT Calicut</td></tr>
+            <tr><td>Computer Networks</td><td class="code">EC3012E</td><td>NIT Calicut</td></tr>
+            <tr><td>Wireless Communication</td><td class="code">EC4011D</td><td>NIT Calicut</td></tr>
+            <tr><td>Basic Electrical Sciences</td><td class="code">ZZ1003D</td><td>NIT Calicut</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h2>Get in touch</h2>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <div class="label">Office</div>
+          <p>Cabin A, DST-FIST Lab, ECED Block II<br>National Institute of Technology Calicut<br>Kozhikode, Kerala 673601, India</p>
+        </div>
+        <div class="contact-item">
+          <div class="label">Email</div>
+          <p><a href="mailto:nithinvs@nitc.ac.in">nithinvs@nitc.ac.in</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">© <span id="year">2026</span> Nithin V. Sabu · Last updated October 2026</div>
+</footer>
+
+<script>
+  // Publication filters
+  (function(){
+    var buttons = document.querySelectorAll('.filters button');
+    var groups = document.querySelectorAll('.pub-group');
+    buttons.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var f = btn.getAttribute('data-filter');
+        buttons.forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+        groups.forEach(function(g){
+          g.style.display = (f === 'all' || g.getAttribute('data-group') === f) ? '' : 'none';
+        });
+      });
+    });
+  })();
+
+  // Highlight the nav link for the section in view
+  (function(){
+    var links = document.querySelectorAll('.nav-links a');
+    var map = {};
+    links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+    if (!('IntersectionObserver' in window)) return;
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting && map[e.target.id]){
+          links.forEach(function(a){ a.classList.remove('active'); });
+          map[e.target.id].classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    document.querySelectorAll('main section[id]').forEach(function(s){ obs.observe(s); });
+  })();
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
